@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 
 app.use(morgan("combined"));
+app.use(express.static("src/public"));
 
 app.engine("hbs", engine({ extname: ".hbs" }));
 app.set("view engine", "hbs");
