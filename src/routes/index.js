@@ -1,11 +1,11 @@
-import newsRouter from "./news.js";
+import newsRouter from './news.js';
 
 function route(app) {
-  app.use("/news", newsRouter);
+    app.use('/news', newsRouter);
 
-  app.get("/", (req, res) => {
-    res.render("home");
-  });
+    app.get('/', (req, res) => {
+        res.render('home');
+    });
 }
 
 export default route;
