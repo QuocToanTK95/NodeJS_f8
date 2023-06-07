@@ -16,6 +16,22 @@ class CourseController {
         res.render('courses/create');
     }
 
+    edit(req, res, next) {
+        Courses.findById(req.params.id)
+            .then((course) =>
+                res.render('courses/edit', {
+                    course: mongooseToObject(course),
+                }),
+            )
+            .catch(next);
+    }
+
+    update(req, res, next) {
+        Courses.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+    }
+
     store(req, res, next) {
         const formData = req.body;
         formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
