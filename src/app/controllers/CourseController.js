@@ -32,6 +32,12 @@ class CourseController {
             .catch(next);
     }
 
+    delete(req, res, next) {
+        Courses.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
     store(req, res, next) {
         const formData = req.body;
         formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
