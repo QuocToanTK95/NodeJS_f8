@@ -12,6 +12,8 @@ db.connect();
 
 app.use(morgan('combined'));
 app.use(express.static('src/public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');

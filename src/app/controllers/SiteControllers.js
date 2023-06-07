@@ -1,8 +1,5 @@
 import Courses from '../models/Course.js';
-import {
-    multipleMongooseToObject,
-    mongooseToObject,
-} from '../../util/mongoose.js';
+import { multipleMongooseToObject } from '../../util/mongoose.js';
 
 class SiteController {
     index(req, res, next) {
